@@ -65,27 +65,55 @@ If you try to run JSX directly in the browser, it will throw an error. To solve 
 - **Calling Components**: You can call them like a function {ChatInput()} or use them like an HTML tag <ChatInput />. Using the HTML tag syntax is the standard and preferred way.
 - **Fragments (<>...</>)**: React components must return a single root element. If you have multiple elements (like an input and a utton) but don't want to wrap them in an extra div, you can use **Fragments** (<> and </>). This keeps the DOM clean.
 
-### Example: Chat Input
+### Props: Passing Data to Components
 
-In the chatbot.html file, we see this in action:
+**Props** allow you to pass data from a parent component to a child component, making components dynamic and reusable.
 
+Example:
 `jsx
-function ChatInput() {
+function ChatMessage({ sender, message }) {
   return (
-    <>
-      <input type="text"></input>
-      <button>Send</button>
-    </>
+    <div>
+      {sender === 'robot' && <img src='robot.png' width='50' />}
+      {message}
+    </div>
   );
 }
 `
 
-By using <>, we group the input and utton together without adding an unnecessary div to the HTML structure.
+### State: Managing Dynamic Data
+
+**State** (React.useState) allows components to "remember" data. When state changes, React automatically re-renders the component to reflect the new data.
+
+- **useState**: Returns an array with two elements: the current state value and a function to update it.
+- **Updating State**: When updating arrays or objects in state, use the spread operator (...) to create a copy, as you should not mutate state directly.
+
+Example:
+`jsx
+const [chatMessages, setChatMessages] = React.useState([...]);
+
+function sendMessage() {
+  setChatMessages([...chatMessages, newMessage]);
+}
+`
+
+### Rendering Lists
+
+Use the .map() method to transform an array of data into an array of React components. Always provide a unique key prop to each list item to help React optimize re-renders.
+
+`jsx
+{chatMessages.map((msg) => (
+  <ChatMessage key={msg.id} message={msg.message} sender={msg.sender} />
+))}
+`
 
 ### Summary
 
 - **React** is a JavaScript library for building user interfaces.
-- **JSX** makes UI code easier to write and understand.
+- **JSX** makes UI code easier to write.
 - **Components** are reusable building blocks.
-- **Fragments** (<>...</>) allow you to group elements without adding extra nodes to the DOM.
-- **Babel** is required to compile JSX into regular JavaScript.
+- **Fragments** (<>...</>) group elements without extra DOM nodes.
+- **Props** pass data to components.
+- **State** (useState) manages dynamic data.
+- **List Rendering** (.map + key) is used for arrays.
+- **Babel** compiles JSX.
