@@ -117,3 +117,6 @@ Use the .map() method to transform an array of data into an array of React compo
 - **State** (useState) manages dynamic data.
 - **List Rendering** (.map + key) is used for arrays.
 - **Babel** compiles JSX.
+
+
+### lifiting up stat state
