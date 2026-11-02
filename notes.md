@@ -56,7 +56,7 @@ function App() {
 
 ### Babel: Compiling JSX
 
-**Browsers do not natively understand JSX.** 
+**Browsers do not natively understand JSX.**
 If you try to run JSX directly in the browser, it will throw an error. To solve this, we use tools like **Babel**, which is a JavaScript compiler. Babel takes your JSX code and converts it into regular React.createElement() calls that the browser can understand.
 
 ### React Components and Fragments
@@ -97,6 +97,12 @@ function sendMessage() {
 }
 `
 
+### Lifting State Up
+
+When multiple components need to share the same state, you should **lift the state up** to their closest common ancestor. 
+- The ancestor manages the state and passes it down via **props**.
+- The child components trigger updates by calling functions passed down as props.
+
 ### Rendering Lists
 
 Use the .map() method to transform an array of data into an array of React components. Always provide a unique key prop to each list item to help React optimize re-renders.
@@ -115,8 +121,6 @@ Use the .map() method to transform an array of data into an array of React compo
 - **Fragments** (<>...</>) group elements without extra DOM nodes.
 - **Props** pass data to components.
 - **State** (useState) manages dynamic data.
+- **Lifting State Up**: Share state between components by moving it to a common parent.
 - **List Rendering** (.map + key) is used for arrays.
 - **Babel** compiles JSX.
-
-
-### lifiting up stat state
