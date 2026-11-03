@@ -113,6 +113,24 @@ Use the .map() method to transform an array of data into an array of React compo
 ))}
 `
 
+### Component Isolation
+
+Each instance of a component maintains its own **independent state**. 
+
+Example:
+`jsx
+function Counter() {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Clicked: {count}
+    </button>
+  );
+}
+`
+If you render <Counter /> twice, each will have its own independent count variable.
+
 ### Summary
 
 - **React** is a JavaScript library for building user interfaces.
@@ -121,6 +139,7 @@ Use the .map() method to transform an array of data into an array of React compo
 - **Fragments** (<>...</>) group elements without extra DOM nodes.
 - **Props** pass data to components.
 - **State** (useState) manages dynamic data.
+- **Component Isolation**: Each component instance manages its own state.
 - **Lifting State Up**: Share state between components by moving it to a common parent.
 - **List Rendering** (.map + key) is used for arrays.
 - **Babel** compiles JSX.
