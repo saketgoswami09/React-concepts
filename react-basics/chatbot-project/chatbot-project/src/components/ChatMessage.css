@@ -1,0 +1,11 @@
+.chat-message-user {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        align-items: start;
+      }
+      .chat-message-robot {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+      }
