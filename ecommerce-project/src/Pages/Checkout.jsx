@@ -1,4 +1,5 @@
-
+import "./Checkout.css"
+import "./checkout-header.css"
 function Checkout() {
   return (
     <>
