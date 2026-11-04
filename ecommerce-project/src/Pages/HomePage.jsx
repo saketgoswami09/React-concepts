@@ -3,6 +3,14 @@ import Header from "../components/Header.jsx";
 import { products } from "../../starting-code/data/products.js";
 
 const HomePage = () => {
+  fetch("http://localhost:3000/api/products")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    });
+
   return (
     <>
       <title>HomePage</title>
@@ -30,7 +38,9 @@ const HomePage = () => {
                   </div>
                 </div>
 
-                <div className="product-price">${(product.priceCents / 100).toFixed(2)}</div>
+                <div className="product-price">
+                  ${(product.priceCents / 100).toFixed(2)}
+                </div>
 
                 <div className="product-quantity-container">
                   <select>
@@ -60,7 +70,6 @@ const HomePage = () => {
               </div>
             );
           })}
-         
         </div>
       </div>
     </>
