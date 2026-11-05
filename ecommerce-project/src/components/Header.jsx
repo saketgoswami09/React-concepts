@@ -2,8 +2,8 @@ import "./header.css";
 import { Link } from "react-router";
 const Header = ({ cart }) => {
   let totalQty = 0;
-  cart.forEach((cartItem) => {
-   totalQty = cartItem.quantity
+  cart?.forEach((cartItem) => {
+   totalQty += cartItem.quantity
   })
   return (
     <>
